@@ -19,6 +19,12 @@ This provides the required header files and library.
 
 ## Command Line Arguments
 
+* `-i number_of_incoming_streams`
+* `-o number_of_outgoing_stream`
+* `-L address1,address2,...,addressN:port`
+* `-X address1,address2,...,addressN`
+* `-S address1,address2,...,addressN:port`
+
 ## Example
 ```
 proxy -i 1024 -o 1024 -L 127.0.0.1,::1:5001 -X 127.0.0.1,::1 -S 127.0.0.1,::1:6001 -S 127.0.0.1,::1:6002
