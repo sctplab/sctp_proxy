@@ -4,7 +4,7 @@
 The proxy supports all operating systems with kernel SCTP support.
 The following table shows how to compile the code.
 
-|OS      | Command                                    |
+|OS      | Compile Command                            |
 |:-------|:-------------------------------------------|
 |FreeBSD |`cc -o proxy -pedantic -pthread proxy.c`    |
 |Linux   |                                            |
