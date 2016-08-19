@@ -6,8 +6,10 @@ The following table shows how to compile the code.
 
 |OS      | Compile Command                            |
 |:-------|:-------------------------------------------|
-|FreeBSD |`cc -o proxy -pedantic -pthread proxy.c`    |
-|Linux   |                                            |
+|FreeBSD |`cc -o proxy -pthread proxy.c`              |
+|Linux   |`gcc -o proxy -lsctp proxy.c`               |
 |Solaris |`gcc -o proxy -lnsl -lsocket -lsctp proxy.c`|
+
+On Linux you must have installed the `libsctp-dev` package.
 
 ## Command Line Arguments
