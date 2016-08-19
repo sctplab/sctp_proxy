@@ -23,9 +23,9 @@ This provides the required header files and library.
 * `-6`
 * `-i number_of_incoming_streams`
 * `-o number_of_outgoing_stream`
-* `-L address1,address2,...,addressN:port`
-* `-X address1,address2,...,addressN`
-* `-S address1,address2,...,addressN:port`
+* `-L address_1,address_2,...,address_N:port`
+* `-X address_1,address_2,...,address_N`
+* `-S address_1,address_2,...,address_N:port`
 
 ## Example
 ```
