@@ -19,6 +19,8 @@ This provides the required header files and library.
 
 ## Command Line Arguments
 
+* `-4`
+* `-6`
 * `-i number_of_incoming_streams`
 * `-o number_of_outgoing_stream`
 * `-L address1,address2,...,addressN:port`
