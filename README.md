@@ -2,6 +2,7 @@
 
 ## Features
 The proxy preserves message boundaries, the ordered/unordered property, the payload protocol identifier, and the stream identifier.
+It distributes the incoming SCTP associations on multiple servers in a round robin fashion.
 
 ## Supported Platforms and Compilation
 The proxy supports all operating systems with kernel SCTP support.
