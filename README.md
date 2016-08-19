@@ -11,5 +11,6 @@ The following table shows how to compile the code.
 |Solaris |`gcc -o proxy -lnsl -lsocket -lsctp proxy.c`|
 
 On Linux you must have installed the `libsctp-dev` package.
+This provides the required header files and library.
 
 ## Command Line Arguments
