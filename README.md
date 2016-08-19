@@ -8,6 +8,6 @@ The following table shows how to compile the code.
 |:-------|:-------------------------------------------|
 |FreeBSD |`cc -o proxy -pedantic -pthread proxy.c`    |
 |Linux   |                                            |
-|Solaris |`gcc -o proxy -lnsl -lsocket -lsctp proxy.c |
+|Solaris |`gcc -o proxy -lnsl -lsocket -lsctp proxy.c`|
 
 ## Command Line Arguments
