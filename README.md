@@ -18,3 +18,8 @@ On Linux you must have installed the `libsctp-dev` package.
 This provides the required header files and library.
 
 ## Command Line Arguments
+
+## Example
+```
+proxy -i 1024 -o 1024 -L 127.0.0.1,::1:5001 -X 127.0.0.1,::1 -S 127.0.0.1,::1:6001 -S 127.0.0.1,::1:6002
+```
