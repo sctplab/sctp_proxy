@@ -12,7 +12,7 @@ The following table shows how to compile the code.
 |:-------|:-------------------------------------------|
 |FreeBSD |`cc -o proxy -pthread proxy.c`              |
 |Linux   |`gcc -o proxy -pthread proxy.c -lsctp`      |
-|Solaris |`gcc -o proxy -lnsl -lsocket -lsctp proxy.c`|
+|Solaris |`gcc -o proxy -lsocket -lnsl -lsctp proxy.c`|
 
 On Linux, you must have installed the `libsctp-dev` package.
 This provides the required header files and the required library.
