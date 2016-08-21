@@ -22,7 +22,7 @@ This provides the required header files and the required library.
 * `-4`
 * `-6`
 * `-i number_of_incoming_streams`
-* `-o number_of_outgoing_stream`
+* `-o number_of_outgoing_streams`
 * `-L address_1,address_2,...,address_N:port`
 * `-X address_1,address_2,...,address_N`
 * `-S address_1,address_2,...,address_N:port`
