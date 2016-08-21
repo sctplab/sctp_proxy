@@ -97,6 +97,7 @@ proxy(void *arg)
 	struct sctp_sndrcvinfo sndrcvinfo;
 	struct sctp_status status;
 	struct sctp_initmsg initmsg;
+	struct sctp_event_subscribe events;
 	socklen_t len;
 
 	pthread_detach(pthread_self());
@@ -139,6 +140,12 @@ proxy(void *arg)
 	initmsg.sinit_max_instreams = status.sstat_outstrms;
 	if (setsockopt(info->server_fd, IPPROTO_SCTP, SCTP_INITMSG, (const void *)&initmsg, (socklen_t)sizeof(struct sctp_initmsg)) < 0) {
 		fprintf(stderr, "proxy: Can't set the number of streams: %s.\n", strerror(errno));
+		goto cleanup;
+	}
+	memset(&events, 0, sizeof(struct sctp_event_subscribe));
+	events.sctp_data_io_event = 1;
+	if (setsockopt(info->server_fd, IPPROTO_SCTP, SCTP_EVENTS, (const void *)&events, (socklen_t)sizeof(struct sctp_event_subscribe)) < 0) {
+		fprintf(stderr, "proxy: Can't subscribe to data_io event: %s\n", strerror(errno));
 		goto cleanup;
 	}
 	if (sctp_bindx(info->server_fd, info->local_addrs, info->number_local_addrs, SCTP_BINDX_ADD_ADDR) < 0) {
@@ -355,6 +362,7 @@ main(int argc, char **argv)
 	int ipv6only;
 	uint16_t i_streams, o_streams;
 	struct sctp_initmsg initmsg;
+	struct sctp_event_subscribe events;
 	long value;
 	int number_servers, i;
 	struct server_info *server_infos, *server_info;
@@ -445,6 +453,12 @@ main(int argc, char **argv)
 		fprintf(stderr, "Can't set the number of streams: %s.\n", strerror(errno));
 		return (1);
 	}
+        memset(&events, 0, sizeof(struct sctp_event_subscribe));
+        events.sctp_data_io_event = 1;
+        if (setsockopt(fd, IPPROTO_SCTP, SCTP_EVENTS, (const void *)&events, (socklen_t)sizeof(struct sctp_event_subscribe)) < 0) {
+                fprintf(stderr, "proxy: Can't subscribe to data_io event: %s\n", strerror(errno));
+                return (1);
+        }
 	
 	number_local_addrs = parse_addrs_list_port(L_arg, ipv4only, ipv6only, &local_addrs);
 	if (number_local_addrs > 0) {
